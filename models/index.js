@@ -1,8 +1,15 @@
 //import all models
-// example const employee = require('./employee');
+const Employee = require('./Employee');
+const Admin = require('./Admin');
 
 //create associations
-// example employee.hasMany...or belongsTo...
+Admin.hasMany(Employee, {
 
-// ends with....
-// module.exports = { User, Post, Vote, Comment };
+});
+
+Employee.belongsTo(Admin, {
+    
+});
+
+
+model.exports = { Employee, Admin };
