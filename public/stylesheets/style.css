@@ -17,6 +17,12 @@
     transition: color .1s;
   }
 
+  p {
+    padding: 10px;
+  }
+
+
+
   button {
     background-color: #225ca3;
     border: 0;
