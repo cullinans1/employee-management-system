@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    color: #333;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #225ca3;
+    font-weight: bold;
+    transition: color .1s;
+  }
+
+  button {
+    background-color: #225ca3;
+    border: 0;
+    padding: 1%;
+    color: white;
+    font-weight: bold;
+    transition: background-color .1s;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  button:hover {
+    background-color: #3486eb;
+  }
+  
+  .button {
+    color: #225ca3;
+    padding: 10px;
+  }
+  
+  .box {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    color: #225ca3;
+  }
+
+  .wrapper {
+    width: 100%;
+    min-height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: lightgoldenrodyellow;
+  }
+  
+  header {
+    font-size: 26px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #39a6b2;
+  }
+  
+  header h1 {
+    font-size: 26px;
+  }
+  
+  header nav a {
+    color: lightgoldenrodyellow;
+    padding: 20px;
+  }
+  
+  header nav #logout {
+    color:   #225ca3;
+    padding: 20px;
+    background-color: lightgoldenrodyellow;
+    border: solid;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 5px 10px #888888;
+  }
+  
+  header h1 a {
+    background-color: lightgoldenrodyellow;
+    border: solid;
+    border-radius: 16px;
+    padding: 5px;
+    box-shadow: 5px 10px #888888;
+  }
+
+  .edit-link {
+    padding: 10px;
+  }
+  
+  .post {
+    margin-bottom: 2%;
+    line-height: 150%;
+  }
+  
