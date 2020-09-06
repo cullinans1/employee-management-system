@@ -9,9 +9,16 @@ router.get('/', (req, res) => {
             'username',
             'email',
             'role',
-            'pto',
-            'holiday',
-            'sick'
+            // 'pto',
+            // 'holiday',
+            // 'sick'
         ]
+    })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
 });
+
+module.exports = router;
