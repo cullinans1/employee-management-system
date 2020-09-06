@@ -1,11 +1,13 @@
 const router = require("express").Router();
-const { Admin } = require("../../models");
+const { Admin, Employee } = require("../../models");
 
 //Create an admin
 router.post("/", (req, res) => {
   Admin.create({
     username: req.body.username,
+    email: req.body.email,
     password: req.body.password,
+    role: req.body.role
   })
     .then((dbUserData) => {
       req.session.save(() => {
@@ -24,7 +26,7 @@ router.post("/", (req, res) => {
 
 //login
 router.post("/login", (req, res) => {
-  User.findOne({
+  Admin.findOne({
     where: {
       username: req.body.username,
     },
@@ -54,6 +56,7 @@ router.post("/login", (req, res) => {
 //Logout
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
+    res.json({message: "You are now logged out!" });
     req.session.destroy(() => {
       res.status(204).end();
     });

@@ -7,4 +7,4 @@ Admin.hasMany(Employee, {
     foreignKey: 'adminId'
 });
 
-model.exports = { Employee, Admin };
+module.exports = { Employee, Admin };
