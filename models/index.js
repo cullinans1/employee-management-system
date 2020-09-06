@@ -4,12 +4,7 @@ const Admin = require('./Admin');
 
 //create associations
 Admin.hasMany(Employee, {
-
+    foreignKey: 'adminId'
 });
-
-Employee.belongsTo(Admin, {
-    
-});
-
 
 model.exports = { Employee, Admin };
