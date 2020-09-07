@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Admin, Employee } = require("../../models");
-const sequelize = require('../../config/connection');
-const withAuth = require('../../utils/auth');
+const sequelize = require("../../config/connection");
+const withAuth = require("../../utils/auth");
 
 //Create an admin
 router.post("/", (req, res) => {
@@ -97,22 +97,22 @@ router.post("/newEmployee", (req, res) => {
 });
 
 //Delete an employee
-router.delete('/:id', (req, res) => {
-    Employee.destroy({
-        where: {
-            id: req.params.id
-        }
+router.delete("/:id", (req, res) => {
+  Employee.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: "No employee found with that id" });
+        return;
+      }
+      res.json(dbUserData);
     })
-    .then(dbUserData => {
-        if(!dbUserData) {
-            res.status(404).json({ message: 'No employee found with that id'});
-            return;
-        }
-        res.json(dbUserData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
 });
 
