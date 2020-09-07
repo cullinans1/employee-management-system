@@ -96,4 +96,24 @@ router.post("/newEmployee", (req, res) => {
     });
 });
 
+//Delete an employee
+router.delete('/:id', (req, res) => {
+    Employee.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbUserData => {
+        if(!dbUserData) {
+            res.status(404).json({ message: 'No employee found with that id'});
+            return;
+        }
+        res.json(dbUserData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 module.exports = router;
