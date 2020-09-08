@@ -1,5 +1,5 @@
 async function logout() {
-    const response = await fetch('/api/admin/logout', {  //need another logout for the employee logout   
+    const response = await fetch('/logout', {  //need another logout for the employee logout   
       method: 'post',
       headers: { 'Content-Type': 'application/json' }
     });

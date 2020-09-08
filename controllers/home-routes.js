@@ -4,7 +4,7 @@ const { Employee, Admin } = require("../models");
 
 router.get("/", (req, res) => {
   if (req.session.loggedIn) {
-    res.render("dashboard");
+    res.render("homepage");
     return;
   }
   res.render("homepage");
@@ -15,7 +15,7 @@ router.get("/login", (req, res) => {
     res.render("dashboard");
     return;
   }
-  res.render("homepage");
+  res.render("login");
 });
 
 router.get("/dashboard", (req, res) => {
