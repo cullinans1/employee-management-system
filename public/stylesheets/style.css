@@ -21,7 +21,9 @@
     padding: 10px;
   }
 
-
+  h3 {
+    padding: 10px;
+  }
 
   button {
     background-color: #225ca3;
@@ -108,4 +110,22 @@
     margin-bottom: 2%;
     line-height: 150%;
   }
-  
+
+  .login {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    color: #225ca3;
+    padding: 10px;
+    border: 10px;
+  }
+
+.email {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .post-list {
+    margin: 0;
+    padding: 0;
+  }

@@ -1,7 +1,23 @@
 const router = require("express").Router();
 const { Admin, Employee } = require("../../models");
-const sequelize = require('../../config/connection');
-const withAuth = require('../../utils/auth');
+const sequelize = require("../../config/connection");
+const withAuth = require("../../utils/auth");
+
+router.get('/', (req, res) => { // moved from employee route to be able to find admins; tested in insomnia
+  Admin.findAll({
+      attributes: [
+          'id',
+          'username',
+          'email',
+          'role',
+      ]
+  })
+  .then(dbUserData => res.json(dbUserData))
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+  });
+});
 
 //Create an admin
 router.post("/", (req, res) => {
@@ -13,7 +29,7 @@ router.post("/", (req, res) => {
   })
     .then((dbUserData) => {
       req.session.save(() => {
-        req.session.adminId = dbUserData.id;
+        req.session.adminId = dbUserData.id; //recommend changing to user_id just like below, so it can be used for either an admin or employee session
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
 
@@ -46,7 +62,7 @@ router.post("/login", (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.adminId = dbUserData.id;
+      req.session.adminId = dbUserData.id;  // recommend changing adminId to user_id just like below, so it can be used for either an admin or employee session
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
 
@@ -89,6 +105,26 @@ router.post("/newEmployee", (req, res) => {
 
         res.json(dbUserData);
       });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+//Delete an employee
+router.delete("/:id", (req, res) => {
+  Employee.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: "No employee found with that id" });
+        return;
+      }
+      res.json(dbUserData);
     })
     .catch((err) => {
       console.log(err);
