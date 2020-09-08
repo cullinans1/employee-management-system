@@ -5,7 +5,7 @@ async function loginFormHandler(event) {
     const password = document.querySelector('#password-login').value.trim();
   
     if (email && password) {
-      const response = await fetch('/api/employee/login', {  // verify this login route
+      const response = await fetch('/api/admin/login', { //need another login for the employee login 
         method: 'post',
         body: JSON.stringify({
           email,
@@ -15,7 +15,7 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/');  // success goes to dashboard
       } else {
         alert(response.statusText);
       }

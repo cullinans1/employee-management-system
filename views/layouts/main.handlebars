@@ -13,11 +13,12 @@
   <header>
 
    <nav>
-      {{#if loggedIn}}
+      {{!-- {{#if loggedIn}} --}}
+           <a href="/dashboard">dashboard</a>
            <button id="logout" class="btn-no-style">logout</button>
-      {{else}}
+      {{!-- {{else}} --}}
            <a href="/login">login</a>
-      {{/if}}
+      {{!-- {{/if}} --}}
    </nav>
 
     <h1>
@@ -28,18 +29,17 @@
     <main>
       {{{ body }}}  
       
-      <!--The body comes from homepage.handlebars-->
-      <!--Insert Employee Management System screen here-->
-
+      <!--The body comes is located on homepage.handlebars-->
+      
     </main>
     <footer>
       <!-- insert footer here....copyright or names of authors? -->
     </footer>
   </div>
   
-  {{#if loggedIn}}
+  {{!-- {{#if loggedIn}} --}}
   <script src="/javascript/logout.js"></script>
-  {{/if}}
+  {{!-- {{/if}} --}}
 </body>
 
 </html>

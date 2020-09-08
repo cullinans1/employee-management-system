@@ -1,0 +1,36 @@
+
+    <p>(Dashboard)</p>
+    <script>
+    if(role == admin) {
+    
+    <div class="click">
+        <a href="/dashboard/create">Add New Employee</a>  
+    </div>
+
+    <div class="click">
+        <a href="/dashboard/edit">Edit Employee Hours</a>
+    </div>
+
+
+    } else {
+
+    <div class="click">
+        <a href="/dashboard/view">View Employee Hours</a>
+    </div>
+
+    }
+      </script>
+
+        <section>
+        <h2>Your Hours</h2>
+            <ol class="post-list">
+             {{> employee-info employee }}
+            </ol>
+        </section> 
+    
+
+  
+
+    {{!-- <script src="/javascript/add-employee.js"></script>
+    <script src="/javascript/view-employee.js"></script>
+    <script src="/javascript/create-employee.js"></script> --}}
