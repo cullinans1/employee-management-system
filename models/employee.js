@@ -42,18 +42,18 @@ Employee.init(
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: 'employee'
-      },
+    },
     pto: {  //set up variable for PTO
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
     }, // closes PTO
     holiday: {  //set up variable for holiday 
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
     }, // closes holiday
     sick: {  //set up variable for sick
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
     }, // closes sick
     }, // closes employee init
   {

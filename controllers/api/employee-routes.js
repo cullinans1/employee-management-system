@@ -20,6 +20,9 @@ router.get('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+  } else {
+    res.status(404).end();
+  }
 });
 
 //Find a specific employee
@@ -81,4 +84,3 @@ router.post("/login", (req, res) => {
   });
   
   module.exports = router;
-

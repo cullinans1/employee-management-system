@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Admin, Employee } = require("../../models");
+
 // const sequelize = require("../../config/connection");
 // const withAuth = require("../../utils/auth");
 
@@ -29,8 +30,10 @@ router.post("/", (req, res) => {
   })
     .then((dbUserData) => {
       req.session.save(() => {
-        req.session.adminId = dbUserData.id; //recommend changing to user_id just like below, so it can be used for either an admin or employee session
-        req.session.username = dbUserData.username;
+
+        req.session.adminId = dbUserData.id;
+        req.session.email = dbUserData.email;
+        
         req.session.loggedIn = true;
 
         res.json(dbUserData);
@@ -63,8 +66,10 @@ router.post("/login", (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.adminId = dbUserData.id;  // recommend changing adminId to user_id just like below, so it can be used for either an admin or employee session
-      req.session.username = dbUserData.username;
+
+      req.session.adminId = dbUserData.id;
+      req.session.email = dbUserData.email;
+
       req.session.loggedIn = true;
 
       res.json({
