@@ -68,17 +68,17 @@ router.post("/login", (req, res) => {
     });
   });
   
-  // //Logout
-  // router.post("/logout", (req, res) => {         // moved to home-route since it is used by both admin and employee
-  //   if (req.session.loggedIn) {
-  //     res.json({ message: "You are now logged out!" });
-  //     req.session.destroy(() => {
-  //       res.status(204).end();
-  //     });
-  //   } else {
-  //     res.status(404).end();
-  //   }
-  // });
+  //Logout
+  router.post("/logout", (req, res) => {        
+    if (req.session.loggedIn) {
+      res.json({ message: "You are now logged out!" });
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
   
   module.exports = router;
 
