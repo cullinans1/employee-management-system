@@ -14,7 +14,7 @@ router.post("/", (req, res) => {
     .then((dbUserData) => {
       req.session.save(() => {
         req.session.adminId = dbUserData.id;
-        req.session.username = dbUserData.username;
+        req.session.email = dbUserData.email;
         req.session.loggedIn = true;
 
         res.json(dbUserData);
@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
 router.post("/login", (req, res) => {
   Admin.findOne({
     where: {
-      username: req.body.username,
+      email: req.body.email,
     },
   }).then((dbUserData) => {
     if (!dbUserData) {
@@ -47,7 +47,7 @@ router.post("/login", (req, res) => {
 
     req.session.save(() => {
       req.session.adminId = dbUserData.id;
-      req.session.username = dbUserData.username;
+      req.session.email = dbUserData.email;
       req.session.loggedIn = true;
 
       res.json({
