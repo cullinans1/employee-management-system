@@ -1,4 +1,4 @@
-<P>(Temporary format.)</P>
+
 <form class="login-form">
   <div>
     <h3>Login Form </h3>
@@ -12,9 +12,9 @@
     <label for="password-login">password:</label>
     <input type="password" id="password-login" />
   </div>
-  <script>
-    var confirmAdmin = confirm('Are you an Admin');
-  </script>
+  {{!-- <script>
+    var confirmAdmin = confirm('Are you an Admin');  
+  </script> --}}
   <div class="button">
     <button type="submit">login</button>
   </div>
@@ -24,6 +24,7 @@
 {{!-- <a href="/signup">signup instead</a>   --}}
 <!-- Are we planning to include this?? -->
 
+{{!-- The following logic is needed to route the login through either the admin or employee paths --}}
 {{!-- <script>
   if (confirmAdmin == false) {
     console.log('confirmAdmin is false')
@@ -39,8 +40,9 @@
   }
   </script> --}}
 
-   <script src="/javascript/login.js"></script>
-   <p>(Login button needs connected to the API route)</p>
+   {{!-- current logic in login.js does a fetch for login through the admin path --}}
+   <script src="/javascript/login.js"></script>  
+
  
   
 

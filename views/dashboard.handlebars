@@ -1,21 +1,36 @@
 
-{{!-- {{#if loggedIn}} --}}
-<script>
-console.log(loggedIn);
-if(role == "admin") {
-    console.log(role);
+    <p>dashboard</p>
+    <script>
+    if(role == admin) {
     
     <div class="click">
-        <a href="/dashboard/create">Add New Employee</a>
+        <a href="/dashboard/create">Add New Employee</a>  
     </div>
-
-} else
 
     <div class="click">
-        <a href="/dashboard/create">Add New Employee</a>
+        <a href="/dashboard/edit">Edit Employee Hours</a>
     </div>
 
-    return role;
-}   
-</script>
-{{!-- {{/if}} --}}
+
+    } else {
+
+    <div class="click">
+        <a href="/dashboard/view">View Employee Hours</a>
+    </div>
+
+    }
+      </script>
+
+        <section>
+        <h2>Your Hours</h2>
+            <ol class="post-list">
+             {{> employee-info employee }}
+            </ol>
+        </section> 
+    
+
+  
+
+    {{!-- <script src="/javascript/add-employee.js"></script>
+    <script src="/javascript/view-employee.js"></script>
+    <script src="/javascript/create-employee.js"></script> --}}

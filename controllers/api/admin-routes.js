@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Admin, Employee } = require("../../models");
-const sequelize = require("../../config/connection");
-const withAuth = require("../../utils/auth");
+// const sequelize = require("../../config/connection");
+// const withAuth = require("../../utils/auth");
 
 router.get('/', (req, res) => { // moved from employee route to be able to find admins; tested in insomnia
   Admin.findAll({
@@ -44,10 +44,11 @@ router.post("/", (req, res) => {
 
 //login
 router.post("/login", (req, res) => {
+  console.log("in admin login")
   Admin.findOne({
     where: {
-      username: req.body.username,
-    },
+      email: req.body.email,
+    }
   }).then((dbUserData) => {
     if (!dbUserData) {
       res.status(400).json({ message: "No admin account found!" });
@@ -74,17 +75,17 @@ router.post("/login", (req, res) => {
   });
 });
 
-//Logout
-router.post("/logout", (req, res) => {
-  if (req.session.loggedIn) {
-    res.json({ message: "You are now logged out!" });
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+// //Logout
+// router.post("/logout", (req, res) => {             // moved to home-route since it is used by both admin and employee
+//   if (req.session.loggedIn) {
+//     res.json({ message: "You are now logged out!" });
+//     req.session.destroy(() => {
+//       res.status(204).end();
+//     });
+//   } else {
+//     res.status(404).end();
+//   }
+// });
 
 //Create Employee
 router.post("/newEmployee", (req, res) => {

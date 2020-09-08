@@ -15,6 +15,7 @@
     color: #225ca3;
     font-weight: bold;
     transition: color .1s;
+    padding: 10px;
   }
 
   p {
@@ -23,6 +24,12 @@
 
   h3 {
     padding: 10px;
+    color: #225ca3;
+  }
+
+  h2 {
+    padding: 10px;
+    color: #225ca3;
   }
 
   button {
@@ -128,4 +135,13 @@
   .post-list {
     margin: 0;
     padding: 0;
+  }
+
+  .click:hover {
+    background-color: #3486eb;
+  }
+
+  .click {
+    padding: 10px;
+    margin: 10px;
   }
