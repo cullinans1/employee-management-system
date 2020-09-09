@@ -1,34 +1,24 @@
 
-    <p>(Dashboard)</p>
-    <script>
-    if(role == admin) {
+    <h2>Dashboard</h2>
+    {{!-- <script>
+    if(role = admin) { --}}
     
     <div class="click">
-        <a href="/dashboard/create">Add New Employee</a>  
+        <a href="/create">Add New Employee</a>  
+    </div>
+    <div class="click">
+        <a href="/edit">Edit Employee Hours</a>
     </div>
 
     <div class="click">
-        <a href="/dashboard/edit">Edit Employee Hours</a>
+        <a href="/view">View Employees</a>
     </div>
 
+    {{!-- } else { --}}
 
-    } else {
-
-    <div class="click">
-        <a href="/dashboard/view">View Employee Hours</a>
-    </div>
-
-    }
-      </script>
-
-        <section>
-        <h2>Your Hours</h2>
-            <ol class="post-list">
-             {{> employee-info employee }}
-            </ol>
-        </section> 
-    
-
+ 
+    {{!-- }
+    </script> --}}
   
 
     {{!-- <script src="/javascript/add-employee.js"></script>
