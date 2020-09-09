@@ -137,11 +137,15 @@
     padding: 0;
   }
 
-  .click:hover {
-    background-color: lightgrey;
-  }
-
   .click {
     padding: 10px;
     margin: 10px;
+  }
+
+ .click a {
+    background-color: lightgoldenrodyellow;
+    border: solid;
+    border-radius: 16px;
+    padding: 5px;
+    box-shadow: 5px 10px #888888;
   }
