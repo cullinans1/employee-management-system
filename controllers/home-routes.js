@@ -82,5 +82,28 @@ router.get("/employee-info/:id", (req, res) => {
     });
 });
 
+// Find one employee for Employee View of their hours
+router.get("/single-info/:id", (req, res) => {
+  Employee.findOne({
+    where: {
+      id: req.session.user_id
+    },
+    attributes: ["id", "username", "email", "role", "pto", "holiday", "sick"],
+  })
+    .then((dbUserData) => {
+      console.log("dbUserData")
+      console.log(dbUserData)
+      const my_employee = dbUserData.get({ plain: true });
+       res.render('single-employee', {
+        employee: my_employee,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 
 module.exports = router;

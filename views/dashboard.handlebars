@@ -1,7 +1,6 @@
 
 
-    {{!-- <script>
-    if(role = admin) { --}}
+ {{!-- {{#if adminId!=null}} --}}
     
     <h2>Admin Dashboard</h2>
 
@@ -16,19 +15,16 @@
         <a href="/view">View Employees</a>
     </div>
 
-    {{!-- } else {
+  {{!-- {{/if}} --}}
 
-  }
-    </script> --}}
+  
 
     <h2>Employee Dashboard</h2>
 
-
     <div class="click">
-        <a href="/employee-info/{{id}}">View Your Hours</a>
+        <a href="/single-info/:id">View Your Hours</a>
     </div>
+
   
 
-    {{!-- <script src="/javascript/add-employee.js"></script>
-    <script src="/javascript/view-employee.js"></script>
-    <script src="/javascript/create-employee.js"></script> --}}
+   
