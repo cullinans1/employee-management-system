@@ -59,30 +59,28 @@ router.get("/view", (req, res) => {
 });
 
 // Find one employee
-router.get("/employee/:id", (req, res) => {
+router.get("/employee-info/:id", (req, res) => {
+  console.log("We got here!")
   Employee.findOne({
     where: {
       id: req.params.id
     },
     attributes: ["id", "username", "email", "role", "pto", "holiday", "sick"],
   })
-    .then((dbUserData)=> {
-      const employees = dbUserData.map(employee => employee.get({ plain: true }));
-
-      res.render('single-employee', {
-        employee,
+    .then((dbUserData) => {
+      console.log("dbUserData")
+      console.log(dbUserData)
+      const my_employee = dbUserData.get({ plain: true });
+       res.render('single-employee', {
+        employee: my_employee,
         loggedIn: req.session.loggedIn
       });
-      console.log(employees);
-      console.log(employee);
-      console.log(user);
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
 
 
 module.exports = router;

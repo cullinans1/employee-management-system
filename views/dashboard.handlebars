@@ -1,8 +1,10 @@
 
-    <h2>Dashboard</h2>
+
     {{!-- <script>
     if(role = admin) { --}}
     
+    <h2>Admin Dashboard</h2>
+
     <div class="click">
         <a href="/create">Add New Employee</a>  
     </div>
@@ -14,11 +16,17 @@
         <a href="/view">View Employees</a>
     </div>
 
-    {{!-- } else { --}}
+    {{!-- } else {
 
- 
-    {{!-- }
+  }
     </script> --}}
+
+    <h2>Employee Dashboard</h2>
+
+
+    <div class="click">
+        <a href="/employee-info/{{id}}">View Your Hours</a>
+    </div>
   
 
     {{!-- <script src="/javascript/add-employee.js"></script>
