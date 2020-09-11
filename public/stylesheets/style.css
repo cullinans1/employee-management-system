@@ -145,3 +145,29 @@
     padding: 10px;
     margin: 10px;
   }
+
+  .img {
+    background-image: url('../images/homepage-background.jpg');
+
+  }
+
+  div.img {
+    background-size: cover;
+    padding: 300px;
+    margin-bottom: -50%;
+    background-color: rgba(252, 249, 249, 0.5) !important;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  }
+
+  .transparent-background{
+    background-color: rgba(252, 249, 249, 0.5) !important;
+    
+
+}
