@@ -1,1 +1,45 @@
-<a href="/login">login</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management System</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+
+  <header>
+
+   <nav>
+      {{!-- {{#if loggedIn}} --}}
+           <a href="/dashboard">dashboard</a>
+           <button id="logout" class="btn-no-style">logout</button>
+      {{!-- {{else}} --}}
+           <a href="/login">login</a>
+      {{!-- {{/if}} --}}
+   </nav>
+
+    <h1>
+        <a href="/">Employee Management System</a>
+    </h1>
+
+        </header>
+    <main>
+      {{{ body }}}  
+      
+      <!--The body is located on homepage.handlebars-->
+      
+    </main>
+    <footer>
+      <!-- insert footer here....copyright or names of authors? -->
+    </footer>
+  </div>
+  
+  {{!-- {{#if loggedIn}} --}}
+  <script src="/javascript/logout.js"></script>
+  {{!-- {{/if}} --}}
+</body>
+
+</html>

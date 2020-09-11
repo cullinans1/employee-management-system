@@ -1,7 +1,7 @@
 const sequelize = require('../config/connection');
 const { Admin } = require('../models');
 
-const admindata = [
+const adminData = [
   {
     username: 'admin',
     email: 'admin@yahoo.com',
@@ -10,6 +10,6 @@ const admindata = [
   }
 ];
 
-const seedAdmins = () => Admin.bulkCreate(admindata, {individualHooks: true});
+const seedAdmins = () => Admin.bulkCreate(adminData, {individualHooks: true});
 
 module.exports = seedAdmins;
