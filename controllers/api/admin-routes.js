@@ -67,7 +67,7 @@ router.post("/login", (req, res) => {
 
     req.session.save(() => {
 
-      req.session.adminId = dbUserData.id;
+      req.session.admin_Id = dbUserData.id;
       req.session.email = dbUserData.email;
 
       req.session.loggedIn = true;
@@ -102,6 +102,25 @@ router.post("/newEmployee", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+//edit employee
+router.put("/edit/:id", (req, res) => {
+  Employee.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(affectedRows => {
+      if (affectedRows > 0) {
+        res.status(200).end();
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch(err => {
       res.status(500).json(err);
     });
 });
