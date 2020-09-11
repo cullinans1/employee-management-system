@@ -1,6 +1,10 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
+const chalk = require('chalk');
 const { Employee, Admin } = require("../models");
+const log = console.log;
+
+const err = chalk.bold.red;
 
 router.get("/", (req, res) => {
   if (req.session.loggedIn) {
@@ -60,7 +64,8 @@ router.get("/view", (req, res) => {
 
 // Find one employee
 router.get("/employee-info/:id", (req, res) => {
-  console.log("We got here!")
+  log(chalk.green('We go here!'))
+  // console.log("We got here!")
   Employee.findOne({
     where: {
       id: req.params.id

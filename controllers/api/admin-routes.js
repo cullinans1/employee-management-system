@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const { Admin, Employee } = require("../../models");
+const chalk = require('chalk');
+const err = chalk.bold.red;
+const log = console.log;
 
 // const sequelize = require("../../config/connection");
 // const withAuth = require("../../utils/auth");
@@ -47,7 +50,8 @@ router.post("/", (req, res) => {
 
 //login
 router.post("/login", (req, res) => {
-  console.log("in admin login")
+  log(chalk.green('in admin login'));
+  // console.log("in admin login");
   Admin.findOne({
     where: {
       email: req.body.email,
