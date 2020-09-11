@@ -48,10 +48,10 @@
     background-color: #3486eb;
   }
   
-  .button {
+  /* button {
     color: #225ca3;
     padding: 10px;
-  }
+  } */
   
   .box {
     border: 2px solid #ccc;
@@ -137,10 +137,6 @@
     padding: 0;
   }
 
-  .click:hover {
-    background-color: #3486eb;
-  }
-
   .click {
     padding: 10px;
     margin: 10px;
@@ -171,3 +167,12 @@
     
 
 }
+
+ .click a {
+    background-color: lightgoldenrodyellow;
+    border: solid;
+    border-radius: 16px;
+    padding: 5px;
+    box-shadow: 5px 10px #888888;
+  }
+

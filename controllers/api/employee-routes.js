@@ -2,7 +2,7 @@ const router = require("express").Router();
 // const sequelize = require('../../config/connection');
 const { Admin, Employee } = require("../../models");
 
-router.get("/", (req, res) => {
+router.get("/view", (req, res) => {
   Employee.findAll({
     attributes: ["id", "username", "email", "role", "pto", "holiday", "sick"],
   })
@@ -50,7 +50,7 @@ router.post("/login", (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.userId = dbUserData.id;
+      req.session.user_id = dbUserData.id;  //was userId
       req.session.email = dbUserData.email;
       req.session.loggedIn = true;
 
