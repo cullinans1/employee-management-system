@@ -4,6 +4,7 @@ const { Admin, Employee } = require("../../models");
 // const sequelize = require("../../config/connection");
 // const withAuth = require("../../utils/auth");
 
+// Find all admins
 router.get('/', (req, res) => { // moved from employee route to be able to find admins; tested in insomnia
   Admin.findAll({
       attributes: [

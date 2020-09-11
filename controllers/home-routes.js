@@ -21,7 +21,7 @@ router.get("/login", (req, res) => {
 
 router.get("/admin-login", (req, res) => {
   if (req.session.loggedIn) {
-    res.render("dashboard");
+    res.render("admin-dashboard");
     return;
   } 
   res.render("admin-login");
