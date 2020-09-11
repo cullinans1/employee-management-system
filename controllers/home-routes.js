@@ -3,6 +3,10 @@ const sequelize = require("../config/connection");
 const { Employee, Admin } = require("../models");
 const withAuth = require("../utils/auth");
 
+const chalk = require('chalk');
+const err = chalk.bold.red;
+const log = console.log;
+
 router.get("/", (req, res) => {
   if (req.session.loggedIn) {
     res.render("homepage");
@@ -78,7 +82,8 @@ router.get("/view", (req, res) => {
 
 // Find one employee
 router.get("/employee-info/:id", (req, res) => {
-  console.log("We got here!")
+  log(chalk.green('We got here!'))
+  // console.log("We got here!")
   Employee.findOne({
     where: {
       id: req.params.id
@@ -86,7 +91,8 @@ router.get("/employee-info/:id", (req, res) => {
     attributes: ["id", "username", "email", "role", "pto", "holiday", "sick"],
   })
     .then((dbUserData) => {
-      console.log("dbUserData")
+      log(chalk.green('dbUserData'))
+      // console.log("dbUserData")
       console.log(dbUserData)
       const my_employee = dbUserData.get({ plain: true });
        res.render('single-employee', {
@@ -122,7 +128,8 @@ router.get("/single-info/:id", (req, res) => {
     attributes: ["id", "username", "email", "role", "pto", "holiday", "sick"],
   })
     .then((dbUserData) => {
-      console.log("dbUserData")
+      log(chalk.green('dbUserData'))
+      // console.log("dbUserData")
       console.log(dbUserData)
       const my_employee = dbUserData.get({ plain: true });
        res.render('single-employee', {
