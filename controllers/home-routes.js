@@ -5,6 +5,8 @@ const { Employee, Admin } = require("../models");
 const log = console.log;
 
 const err = chalk.bold.red;
+const withAuth = require("../utils/auth");
+
 
 router.get("/", (req, res) => {
   if (req.session.loggedIn) {
@@ -20,6 +22,23 @@ router.get("/login", (req, res) => {
     return;
   }
   res.render("login");
+});
+
+router.get("/admin-login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.render("dashboard");
+    return;
+  } 
+  res.render("admin-login");
+});
+
+router.get("/admin-dashboard", withAuth, (req, res) => {
+  if (req.session.loggedIn) {
+    res.render("admin-dashboard");
+    return;
+  }
+
+  res.render("admin-login");
 });
 
 router.get("/dashboard", (req, res) => {
@@ -86,7 +105,20 @@ router.get("/employee-info/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
+router.get("/edit/:id", (req, res) => {
+  Employee.findByPk(req.params.id)
+    .then(dbUserData => {
+        const edit_employee = dbUserData.get({ plain: true });
+        
+        res.render("edit-employee", {
+          employee: edit_employee,
+          loggedIn: req.session.loggedIn
+        });
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
 // Find one employee for Employee View of their hours
 router.get("/single-info/:id", (req, res) => {
   Employee.findOne({
