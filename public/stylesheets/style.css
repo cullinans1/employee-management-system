@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
   }
   
   body, html {
@@ -67,7 +68,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    background-color: lightgoldenrodyellow;
+    background-color: oldlace;
   }
   
   header {
@@ -87,26 +88,32 @@
   }
   
   header nav a {
-    color: lightgoldenrodyellow;
+    color: oldlace;
     padding: 20px;
+  }
+
+  a:hover {
+    color: black;
   }
   
   header nav #logout {
     color:   #225ca3;
     padding: 20px;
-    background-color: lightgoldenrodyellow;
+    background-color: oldlace;
     border: solid;
     border-radius: 16px;
     padding: 16px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 5px 5px #888888;
   }
-  
+  #logout:hover {
+    color:black;
+  } 
   header h1 a {
-    background-color: lightgoldenrodyellow;
+    background-color: oldlace;
     border: solid;
     border-radius: 16px;
     padding: 5px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 5px 5px #888888;
   }
 
   .edit-link {
@@ -169,10 +176,10 @@
 }
 
  .click a {
-    background-color: lightgoldenrodyellow;
+    background-color: oldlace;
     border: solid;
     border-radius: 16px;
     padding: 5px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 5px 5px #888888;
   }
 

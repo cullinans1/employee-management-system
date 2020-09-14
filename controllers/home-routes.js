@@ -25,7 +25,7 @@ router.get("/login", (req, res) => {
 
 router.get("/admin-login", (req, res) => {
   if (req.session.loggedIn) {
-    res.render("admin-dashboard");
+    res.render("dashboard");
     return;
   } 
   res.render("admin-login");
@@ -105,8 +105,13 @@ router.get("/employee-info/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-router.get("/edit/:id", (req, res) => {
-  Employee.findByPk(req.params.id)
+router.get("/edit/:id", withAuth, (req, res) => {
+  Employee.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: ["id", "username", "email", "role", "pto", "holiday", "sick"],
+  })
     .then(dbUserData => {
         const edit_employee = dbUserData.get({ plain: true });
         
