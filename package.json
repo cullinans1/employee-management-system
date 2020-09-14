@@ -21,6 +21,7 @@
   "homepage": "https://github.com/cullinans1/employee-management-system#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "chalk": "^4.1.0",
     "connect-session-sequelize": "^7.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

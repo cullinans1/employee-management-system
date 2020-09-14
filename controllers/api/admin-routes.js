@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Admin, Employee } = require("../../models");
 const chalk = require('chalk');
+const withAuth = require("../../utils/auth");
 const err = chalk.bold.red;
 const log = console.log;
 
@@ -120,6 +121,7 @@ router.put("/edit/:id", (req, res) => {
   })
     .then(affectedRows => {
       if (affectedRows > 0) {
+        res.json(affectedRows);
         res.status(200).end();
       } else {
         res.status(404).end();
