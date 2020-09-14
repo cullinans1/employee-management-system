@@ -1,0 +1,24 @@
+<div class="post card">
+    <div class="card-header">
+        <h2>Edit Employee {{username}}</h2>
+    </div>
+    <form id="edit-employee-form" class="card-body">
+        <input type="hidden" name="employee-id" value="{{id}}" />
+
+        <label class="form-label" for="employee-pto">Paid Time Off</label>
+        <input type="text" name="employee-pto" value="{{pto}}" class="form-input" />
+
+        <label class="form-label" for="employee-holiday">Holiday Time</label>
+        <input type="text" name="employee-holiday" value="{{holiday}}" class="form-input" />
+
+        <label class="form-label" for="employee-sick">Sick Time</label>
+        <input type="text" name="employee-sick" value="{{sick}}" class="form-input" />
+
+        <button type="submit" class="btn">Update</button>
+
+        <button type="button" id="delete-btn" class="btn">Delete</button>
+        <button type="button" id="danger-btn" class="btn btn-danger hidden">Confirm Delete Employee</button>
+    </form>
+</div>
+
+<script src="/javascript/edit.js"></script>

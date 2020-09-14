@@ -86,7 +86,9 @@
   header h1 {
     font-size: 26px;
   }
-  
+  nav {
+    display: flex;
+  }
   header nav a {
     color: oldlace;
     padding: 20px;
@@ -96,7 +98,7 @@
     color: black;
   }
   
-  header nav #logout {
+  #logout {
     color:   #225ca3;
     padding: 20px;
     background-color: oldlace;
@@ -105,6 +107,7 @@
     padding: 16px;
     box-shadow: 5px 5px 5px #888888;
   }
+
   #logout:hover {
     color:black;
   } 
@@ -183,3 +186,6 @@
     box-shadow: 5px 5px 5px #888888;
   }
 
+  .hidden {
+    display: none;
+  }
