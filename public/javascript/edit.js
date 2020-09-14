@@ -28,10 +28,10 @@ const confirmDelete = function (event) {
   document.querySelector('#delete-btn').setAttribute('class', 'hidden');
 };
 const deleteClickHandler = async function () {
-  await fetch(`/api/admin/delete/${employeeId}`, {
+  await fetch(`/api/admin/${employeeId}`, {
     method: "DELETE",
   });
-
+  alert('Employee Deleted');
   document.location.replace("/admin-dashboard");
 };
 

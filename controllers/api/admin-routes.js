@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { Admin, Employee } = require("../../models");
 const chalk = require('chalk');
 const withAuth = require("../../utils/auth");
-const { DELETE } = require("sequelize/types/lib/query-types");
 const err = chalk.bold.red;
 const log = console.log;
 
@@ -134,7 +133,7 @@ router.put("/edit/:id", (req, res) => {
 });
 
 //Delete an employee
-router.delete("/delete/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   Employee.destroy({
     where: {
       id: req.params.id,
