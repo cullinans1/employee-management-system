@@ -113,7 +113,7 @@ router.post("/newEmployee", (req, res) => {
 });
 
 //edit employee
-router.put("/edit/:id", (req, res) => {
+router.put("/edit/:id", withAuth, (req, res) => {
   Employee.update(req.body, {
     where: {
       id: req.params.id
@@ -133,7 +133,7 @@ router.put("/edit/:id", (req, res) => {
 });
 
 //Delete an employee
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Employee.destroy({
     where: {
       id: req.params.id,
