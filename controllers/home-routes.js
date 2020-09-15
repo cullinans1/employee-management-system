@@ -1,6 +1,11 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Employee, Admin } = require("../models");
+const withAuth = require("../utils/auth");
+
+const chalk = require('chalk');
+const err = chalk.bold.red;
+const log = console.log;
 
 router.get("/", (req, res) => {
   if (req.session.loggedIn) {
@@ -16,6 +21,23 @@ router.get("/login", (req, res) => {
     return;
   }
   res.render("login");
+});
+
+router.get("/admin-login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.render("dashboard");
+    return;
+  } 
+  res.render("admin-login");
+});
+
+router.get("/admin-dashboard", withAuth, (req, res) => {
+  if (req.session.loggedIn) {
+    res.render("admin-dashboard");
+    return;
+  }
+
+  res.render("admin-login");
 });
 
 router.get("/dashboard", (req, res) => {
@@ -60,7 +82,8 @@ router.get("/view", (req, res) => {
 
 // Find one employee
 router.get("/employee-info/:id", (req, res) => {
-  console.log("We got here!")
+  log(chalk.green('We got here!'))
+  // console.log("We got here!")
   Employee.findOne({
     where: {
       id: req.params.id
@@ -68,7 +91,8 @@ router.get("/employee-info/:id", (req, res) => {
     attributes: ["id", "username", "email", "role", "pto", "holiday", "sick"],
   })
     .then((dbUserData) => {
-      console.log("dbUserData")
+      log(chalk.green('dbUserData'))
+      // console.log("dbUserData")
       console.log(dbUserData)
       const my_employee = dbUserData.get({ plain: true });
        res.render('single-employee', {
@@ -81,7 +105,25 @@ router.get("/employee-info/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
+router.get("/edit/:id", withAuth, (req, res) => {
+  Employee.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: ["id", "username", "email", "role", "pto", "holiday", "sick"],
+  })
+    .then(dbUserData => {
+        const edit_employee = dbUserData.get({ plain: true });
+        
+        res.render("edit-employee", {
+          employee: edit_employee,
+          loggedIn: req.session.loggedIn
+        });
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
 // Find one employee for Employee View of their hours
 router.get("/single-info/:id", (req, res) => {
   Employee.findOne({
@@ -91,7 +133,8 @@ router.get("/single-info/:id", (req, res) => {
     attributes: ["id", "username", "email", "role", "pto", "holiday", "sick"],
   })
     .then((dbUserData) => {
-      console.log("dbUserData")
+      log(chalk.green('dbUserData'))
+      // console.log("dbUserData")
       console.log(dbUserData)
       const my_employee = dbUserData.get({ plain: true });
        res.render('single-employee', {

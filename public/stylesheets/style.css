@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
   }
   
   body, html {
@@ -67,7 +68,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    background-color: lightgoldenrodyellow;
+    background-color: oldlace;
   }
   
   header {
@@ -85,28 +86,42 @@
   header h1 {
     font-size: 26px;
   }
-  
+  nav {
+    display: flex;
+  }
   header nav a {
-    color: lightgoldenrodyellow;
+    color: oldlace;
     padding: 20px;
   }
+
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
   
-  header nav #logout {
+  #logout {
     color:   #225ca3;
     padding: 20px;
-    background-color: lightgoldenrodyellow;
+    background-color: oldlace;
     border: solid;
     border-radius: 16px;
     padding: 16px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 5px 5px #888888;
   }
-  
+
+  #logout:hover {
+    color:black;
+  }
+
+  .dropdown-item:hover {
+    background-color: rgba(43, 42, 42, 0.301);
+  } 
   header h1 a {
-    background-color: lightgoldenrodyellow;
+    background-color: oldlace;
     border: solid;
     border-radius: 16px;
     padding: 5px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 5px 5px #888888;
   }
 
   .edit-link {
@@ -142,10 +157,40 @@
     margin: 10px;
   }
 
+  .img {
+    background-image: url('../images/homepage-background.jpg');
+
+  }
+
+  div.img {
+    background-size: cover;
+    padding: 300px;
+    margin-bottom: -50%;
+    background-color: rgba(252, 249, 249, 0.5) !important;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  }
+
+  .transparent-background{
+    background-color: rgba(252, 249, 249, 0.5) !important;
+    
+
+}
+
  .click a {
-    background-color: lightgoldenrodyellow;
+    background-color: oldlace;
     border: solid;
     border-radius: 16px;
     padding: 5px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 5px 5px #888888;
+  }
+
+  .hidden {
+    display: none;
   }

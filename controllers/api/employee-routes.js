@@ -1,6 +1,9 @@
 const router = require("express").Router();
 // const sequelize = require('../../config/connection');
 const { Admin, Employee } = require("../../models");
+const chalk = require('chalk');
+const err = chalk.bold.red;
+const log = console.log;
 
 router.get("/view", (req, res) => {
   Employee.findAll({

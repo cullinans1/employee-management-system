@@ -1,9 +1,14 @@
 const router = require("express").Router();
 const { Admin, Employee } = require("../../models");
+const chalk = require('chalk');
+const withAuth = require("../../utils/auth");
+const err = chalk.bold.red;
+const log = console.log;
 
 // const sequelize = require("../../config/connection");
 // const withAuth = require("../../utils/auth");
 
+// Find all admins
 router.get('/', (req, res) => { // moved from employee route to be able to find admins; tested in insomnia
   Admin.findAll({
       attributes: [
@@ -47,7 +52,8 @@ router.post("/", (req, res) => {
 
 //login
 router.post("/login", (req, res) => {
-  console.log("in admin login")
+  log(chalk.green('in admin login'))
+  // console.log("in admin login")
   Admin.findOne({
     where: {
       email: req.body.email,
@@ -67,7 +73,7 @@ router.post("/login", (req, res) => {
 
     req.session.save(() => {
 
-      req.session.adminId = dbUserData.id;
+      req.session.admin_Id = dbUserData.id;
       req.session.email = dbUserData.email;
 
       req.session.loggedIn = true;
@@ -106,8 +112,28 @@ router.post("/newEmployee", (req, res) => {
     });
 });
 
+//edit employee
+router.put("/edit/:id", withAuth, (req, res) => {
+  Employee.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(affectedRows => {
+      if (affectedRows > 0) {
+        res.json(affectedRows);
+        res.status(200).end();
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
 //Delete an employee
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Employee.destroy({
     where: {
       id: req.params.id,
