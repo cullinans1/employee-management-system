@@ -1,6 +1,6 @@
 //import all models
-const Employee = require('./Employee');
-const Admin = require('./Admin');
+const Employee = require('./employee');
+const Admin = require('./admin');
 
 //create associations
 Admin.hasMany(Employee, {
