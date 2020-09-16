@@ -18,7 +18,7 @@ const editFormHandler = async function (event) {
       "Content-Type": "application/json",
     },
   });
-  alert("Sucess!");
+  alert("Success!");
   document.location.replace("/admin-dashboard");
 };
 
