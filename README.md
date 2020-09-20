@@ -22,6 +22,8 @@ The following is a screen shot of the home page of the Employee Management Syste
 + [License](#license)
 - [Contributing](#contributing)
 * [Tests](#tests)
+* [Features](#features)
+* [status](#status)
 + [Questions](#questions)
 
 ## *Installation*
@@ -31,13 +33,25 @@ This can be run directly from Heroku or can be run from the web at https://local
 Administrators can view and manage employee time off and employees can view the balances of their time off.
 
 ## *License*
-This application is covered under the MIT license. Copyright (c) 2020 Laura Fry, Sammy Cullinan, Ismael Ramirez.
+This application is covered under the MIT license. Copyright (c) 2020 Laura Fry, Sammy Cullinan, Ismael Ramirez, Nicholas De La Garza.
 
 ## *Contributing*
-This was a group project. Contributors were Laura Fry, Sammy Cullinan and Ismael Ramirez.
+This was a group project. Contributors were Laura Fry, Sammy Cullinan, Ismael Ramirez and Nicholas De La Garza.
 
 ## *Tests*
 Testing was performed throughout the creation of the project, as well as documented tests are identified in the _tests_ folder.
+
+## Features
+List of features ready and TODOs for future development
+* login feature for employee
+* login feature for admin
+* dashboard feature 
+
+To-do list:
+* create employee feature 
+
+## *Status*
+Project is still not full completed as there is still a "create employee" feature that is still in progress
 
 ## *Questions*
 For any questions or for support, please contact Laura Fry at: lafry5@yahoo.com or lafry5 on GitHub.
