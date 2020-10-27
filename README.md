@@ -9,6 +9,7 @@ You can access this Github Repository at: https://github.com/cullinans1/employee
 
 ## *Description*
 EMS manages employee pto, sick and holiday time off
+Live application at:  https://fast-everglades-76261.herokuapp.com/
 
 ## Screen Shot
 The following is a screen shot of the home page of the Employee Management System:
@@ -24,7 +25,6 @@ The following is a screen shot of the home page of the Employee Management Syste
 * [Tests](#tests)
 * [Features](#features)
 * [status](#status)
-+ [Questions](#questions)
 
 ## *Installation*
 This can be run directly from Heroku or can be run from the web at https://localhost:3001. First the ems_db must be seeded, then type npm start.
@@ -52,9 +52,6 @@ To-do list:
 
 ## *Status*
 Project is still not full completed as there is still a "create employee" feature that is still in progress
-
-## *Questions*
-For any questions or for support, please contact Laura Fry at: lafry5@yahoo.com or lafry5 on GitHub.
 
 
   
